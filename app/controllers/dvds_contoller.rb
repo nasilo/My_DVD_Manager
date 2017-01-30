@@ -1,0 +1,3 @@
+class DVDsController < ApplicationController
+
+end
