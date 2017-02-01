@@ -1,8 +1,12 @@
-<div>
+<div class="content-box">
   <h1>Sign Up</h1>
 
   <%= form_for @user do |f| %>
-    <%= f.text_field :name, label: false, placeholder: "UserName" %>
-    <%= f.submit %>
+    <div class="form-inputs">
+      <%= f.text_field :name, label: false, placeholder: "UserName" %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit %>
+    </div>
   <% end %>
 </div>
