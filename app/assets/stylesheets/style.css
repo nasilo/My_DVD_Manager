@@ -1,0 +1,265 @@
+.top-bar,.title-area, .top-bar *, .top-bar ul {
+  color: #EEEEEE;
+  background: rgba(46, 44, 45, 0);
+}
+
+.top-bar {
+  background: rgba(46, 44, 45, .7);
+  position: fixed;
+}
+
+.top-bar-spacer {
+  height: 85px;
+}
+
+.top-bar:hover {
+  background: rgba(46, 44, 45, .9);
+}
+
+.title-area *:hover {
+  color: #EB6564;
+}
+
+.sign-up *:hover {
+  color: #EDDB7F;
+}
+
+.sign-in *:hover {
+  color: #89BA99;
+}
+
+.sign-out *:hover {
+  color: #EDDB7F;
+}
+
+.account-settings *:hover {
+  color: #89BA99;
+}
+
+body {
+  /*background-color: #05A0A8;*/
+  background: url(dvds.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+a {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.right {
+  float: right;
+  display: inline-block;
+}
+
+.title-area {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.right-item {
+  display: inline-block;
+  font-size: 28px ;
+  font-family: 'Exo 2', sans-serif;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.nav-link {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
+.list-item-content:hover{
+  background: rgba(255, 255, 255, .75);
+}
+
+.content {
+  width: 750px;
+  margin: auto;
+}
+
+.content-box {
+  margin-top: 50px;
+  background: rgba(255, 255, 255, .7);
+  border-radius: 15px;
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+}
+
+.content * {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.error-msg {
+  width: 900px;
+  color: black;
+  margin: auto;
+  font-family: 'Exo 2', sans-serif;
+  margin: auto;
+  margin-top: 50px;
+  background: rgba(255, 255, 255, .7);
+  border-radius: 50px;
+  padding: 30px 50px 30px 50px;
+}
+
+.profile_photo {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.right {
+  margin-bottom: 0px;
+}
+
+.list-item-box {
+  padding: 0px 10px 10px 10px;
+}
+
+.list-item-content {
+  margin: auto;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, .7);
+  border-radius: 50px;
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+  height: 210px;
+  overflow: hidden;
+}
+
+.index-item-image-box {
+  height: 110px;
+  margin: auto;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.review-button {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.upvote {
+  background-color: #89BA99;
+}
+
+.downvote {
+  background-color: #EB6564;
+}
+
+.upvote:hover{
+  background: rgb(113,153,126);
+}
+
+.downvote:hover{
+  background: rgb(193,83,83);
+}
+
+.edit-review {
+  background-color: #EDDB7F;
+  text-color: black;
+}
+
+.edit-review:hover{
+  background-color: rgb(201,186,108);
+  link {color: #000000 }
+}
+
+.delete-review {
+  background-color: #496B87;
+}
+
+.delete-review:hover {
+  background-color: rgb(53,78,99);
+}
+
+.review-box {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  padding: 30px 50px 30px 50px;
+  margin-bottom: 10px;
+}
+
+.voteBox {
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  float: right;
+}
+
+.goodScore {
+  background-color: #89BA99;
+}
+
+.badScore {
+  background-color: #EB6564;
+}
+
+.neutralScore {
+  background-color: #B3B3B3;
+}
+
+.score-text {
+  margin-bottom: 0px;
+}
+
+.review-buttons {
+  margin-top: 20px;
+}
+
+.item-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review-image {
+  margin-bottom: 20px;
+  margin: auto;
+  display: block;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+.itemList {
+  margin-top: 10px;
+}
+
+.submission-date {
+  margin-top: 20px;
+}
+
+.review-profile {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.user-line {
+  display:inline-block;
+}
