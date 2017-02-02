@@ -1,0 +1,77 @@
+<%= form_for(@dvd) do |f| %>
+  <div class="small-10 column">
+    <%= f.label :upc %>
+    <%= f.text_field :upc, params[:lookup] %>
+
+    <!-- <%= f.submit "Search UPC" %> -->
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :purchase_price %>
+    <%= f.text_field :purchase_price %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :purchase_location %>
+    <%= f.text_field :purchase_location %>
+  </div>
+
+  <div class="small-10 column">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="small-10 column">
+    <%= f.label :synopsis %>
+    <%= f.text_box :synopsis %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :user_rating %>
+    <%= f.text_field :user_rating %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :mpaa_rating %>
+    <%= f.text_field :mpaa_rating %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :cast %>
+    <%= f.text_field :cast %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :writer %>
+    <%= f.text_field :writer %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :producer %>
+    <%= f.text_field :producer %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :release_date %>
+    <%= f.text_field :release_date %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :run_time %>
+    <%= f.text_field :run_time %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.label :studio %>
+    <%= f.text_field :studio %>
+  </div>
+
+  <div class="small-10 medium-5 column">
+    <%= f.submit "Add DVD" %>
+  </div>
+<% end %>
