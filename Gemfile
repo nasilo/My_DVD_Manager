@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem "omniauth-facebook"
 gem 'font-awesome-rails'
+gem 'right_aws_api'
 
 group :development, :test do
   gem 'capybara'

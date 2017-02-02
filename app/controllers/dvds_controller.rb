@@ -2,7 +2,8 @@ class DvdsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @dvds = current_user.dvds
+    @user = current_user
+    @dvds = @user.dvds
   end
 
   def new
@@ -12,6 +13,10 @@ class DvdsController < ApplicationController
   def create
     @dvd = Dvd.new(dvd_params)
     @dvd.user = current_user
+
+    if @dvd.mpaa_rating == ""
+      @dvd.mpaa_rating = nil
+    end
 
     if @dvd.save
       flash[:notice] = "DVD added!"
