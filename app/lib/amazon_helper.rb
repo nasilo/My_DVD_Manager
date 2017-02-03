@@ -55,12 +55,10 @@ class AmazonHelper
           time = "#{ammount} #{unit}"
         end
       end
-    else
-      if !@response["ItemAttributes"]["RunningTime"].nil?
-        ammount = @response["ItemAttributes"]["RunningTime"]["@@text"]
-        unit = @response["ItemAttributes"]["RunningTime"]["@Units"]
-        time = "#{ammount} #{unit}"
-      end
+    elsif !@response["ItemAttributes"]["RunningTime"].nil?
+      ammount = @response["ItemAttributes"]["RunningTime"]["@@text"]
+      unit = @response["ItemAttributes"]["RunningTime"]["@Units"]
+      time = "#{ammount} #{unit}"
     end
     time
   end
@@ -73,10 +71,8 @@ class AmazonHelper
           cast = @response["ItemAttributes"]["Actor"]
         end
       end
-    else
-      if !@response["ItemAttributes"]["Actor"].nil?
-        cast = @response["ItemAttributes"]["Actor"]
-      end
+    elsif !@response["ItemAttributes"]["Actor"].nil?
+      cast = @response["ItemAttributes"]["Actor"]
     end
     cast.join(", ")
   end
@@ -93,12 +89,10 @@ class AmazonHelper
           end
         end
       end
-    else
-      if !@response["ItemAttributes"]["Creator"].nil?
-        @response["ItemAttributes"]["Creator"].each do |creator|
-          if creator["@Role"] == "Producer"
-            producer << creator["@@text"]
-          end
+    elsif !@response["ItemAttributes"]["Creator"].nil?
+      @response["ItemAttributes"]["Creator"].each do |creator|
+        if creator["@Role"] == "Producer"
+          producer << creator["@@text"]
         end
       end
     end
@@ -117,12 +111,10 @@ class AmazonHelper
           end
         end
       end
-    else
-      if !@response["ItemAttributes"]["Creator"].nil?
-        @response["ItemAttributes"]["Creator"].each do |creator|
-          if creator["@Role"] == "Writer"
-            writer << creator["@@text"]
-          end
+    elsif !@response["ItemAttributes"]["Creator"].nil?
+      @response["ItemAttributes"]["Creator"].each do |creator|
+        if creator["@Role"] == "Writer"
+          writer << creator["@@text"]
         end
       end
     end
@@ -137,10 +129,8 @@ class AmazonHelper
           synopsis = item["EditorialReviews"]["EditorialReview"]["Content"]
         end
       end
-    else
-      if !@response["EditorialReviews"].nil?
+    elsif !@response["EditorialReviews"].nil?
         synopsis = @response["EditorialReviews"]["EditorialReview"]["Content"]
-      end
     end
     synopsis
   end
@@ -163,10 +153,8 @@ class AmazonHelper
           output_string = item["ItemAttributes"][response_field]
         end
       end
-    else
-      if !@response["ItemAttributes"][response_field].nil?
-        output_string = @response["ItemAttributes"][response_field]
-      end
+    elsif !@response["ItemAttributes"][response_field].nil?
+      output_string = @response["ItemAttributes"][response_field]
     end
     output_string
   end
@@ -179,12 +167,9 @@ class AmazonHelper
           output_string = item[image_size]["URL"]
         end
       end
-    else
-      if !@response[image_size]["URL"].nil?
-        output_string = @response[image_size]["URL"]
-      end
+    elsif !@response[image_size]["URL"].nil?
+      output_string = @response[image_size]["URL"]
     end
     output_string
   end
-
 end
