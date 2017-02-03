@@ -76,7 +76,9 @@
     </div>
 
     <div class="small-12 medium-6 column">
-      <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
+      <% if !params[:upc].nil? %>
+        <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
+      <% end %>
       <%= f.submit "Add DVD" %>
     </div>
   <% end %>

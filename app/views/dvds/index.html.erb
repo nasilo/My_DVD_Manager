@@ -4,5 +4,16 @@
 </div>
 
 <% @dvds.each do |dvd| %>
-  <%= dvd.title %>
+  <% class_name = 'small-4 column list-item-box' %>
+  <% if dvd == @dvds.last %>
+    <% class_name += ' end' %>
+  <% end %>
+  <div key=<%= dvd.id %> class=<%= class_name %>>
+    <div class='list-item-content'>
+      <p><b><%= dvd.title %></b></p>
+      <div>
+        <img src=<%= dvd.image_small %> alt="no image" class='index-item-image-box'/>
+      </div>
+    </div>
+  </div>
 <% end %>

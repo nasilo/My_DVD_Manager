@@ -14,7 +14,7 @@ class DvdsController < ApplicationController
   def create
     @dvd = Dvd.new(dvd_params)
     @dvd.user = current_user
-
+    add_images(@dvd)
     if @dvd.mpaa_rating == ""
       @dvd.mpaa_rating = nil
     end
@@ -71,6 +71,13 @@ class DvdsController < ApplicationController
     dvd_object.director = data.director
     dvd_object.release_date = data.release_date
     dvd_object.run_time = data.run_time
+    dvd_object
+  end
+
+  def add_images(dvd_object)
+    data = AmazonHelper.new(dvd_object.upc.upc)
+    dvd_object.image_small = data.small_image
+    dvd_object.image_large = data.large_image
     dvd_object
   end
 end
