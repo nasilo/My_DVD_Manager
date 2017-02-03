@@ -50,8 +50,8 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["RunningTime"].nil?
-          ammount = @response["ItemAttributes"]["RunningTime"]["@@text"]
-          unit = @response["ItemAttributes"]["RunningTime"]["@Units"]
+          ammount = item["ItemAttributes"]["RunningTime"]["@@text"]
+          unit = item["ItemAttributes"]["RunningTime"]["@Units"]
           time = "#{ammount} #{unit}"
         end
       end
@@ -70,7 +70,7 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["Actor"].nil?
-          cast = @response["ItemAttributes"]["Actor"]
+          cast = item["ItemAttributes"]["Actor"]
         end
       end
     else
@@ -86,7 +86,7 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["Creator"].nil?
-          @response["ItemAttributes"]["Creator"].each do |creator|
+          item["ItemAttributes"]["Creator"].each do |creator|
             if creator["@Role"] == "Producer"
               producer << creator["@@text"]
             end
@@ -110,7 +110,7 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["Creator"].nil?
-          @response["ItemAttributes"]["Creator"].each do |creator|
+          item["ItemAttributes"]["Creator"].each do |creator|
             if creator["@Role"] == "Writer"
               writer << creator["@@text"]
             end
