@@ -1,13 +1,15 @@
 <div class="content-box row">
 
-  <%= form_for(@dvd) do |f| %>
+  <%= form_for(@upc) do |f| %>
     <div class="small-12 column">
       <%= f.label :upc %>
       <%= f.text_field :upc %>
 
-      <!-- <%= f.submit "Search UPC" %> -->
+      <%= f.submit "Search UPC" %>
     </div>
+  <% end %>
 
+  <%= form_for(@dvd) do |f| %>
     <div class="small-10 medium-6 column">
       <%= f.label :purchase_price %>
       <%= f.text_field :purchase_price %>
@@ -74,6 +76,7 @@
     </div>
 
     <div class="small-12 medium-6 column">
+      <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
       <%= f.submit "Add DVD" %>
     </div>
   <% end %>
