@@ -145,6 +145,14 @@ class AmazonHelper
     synopsis
   end
 
+  def small_image
+    add_image("MediumImage")
+  end
+
+  def large_image
+    add_image("LargeImage")
+  end
+
   private
 
   def item_attributes(response_field)
@@ -158,6 +166,22 @@ class AmazonHelper
     else
       if !@response["ItemAttributes"][response_field].nil?
         output_string = @response["ItemAttributes"][response_field]
+      end
+    end
+    output_string
+  end
+
+  def add_image(image_size)
+    output_string = ''
+    if @response.class == Array
+      @response.each do |item|
+        if !item[image_size]["URL"].nil?
+          output_string = item[image_size]["URL"]
+        end
+      end
+    else
+      if !@response[image_size]["URL"].nil?
+        output_string = @response[image_size]["URL"]
       end
     end
     output_string
