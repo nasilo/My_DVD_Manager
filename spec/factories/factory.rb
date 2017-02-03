@@ -4,6 +4,8 @@ FactoryGirl.define do
   end
   factory :dvd do
     title Faker::Book.title
+    image_small Faker::Placeholdit.image
+    image_large Faker::Placeholdit.image
     upc
     user
   end
