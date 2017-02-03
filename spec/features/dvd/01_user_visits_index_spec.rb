@@ -11,7 +11,7 @@ feature "user visits index page" do
     click_link 'Sign Out'
     visit auth_path(:facebook)
 
-    expect(page).to have_content "Your DVDs"
+    expect(page).to have_content "New_User's DVDs"
 
     expect(page).to have_content "Space Balls"
     expect(page).to have_content "Silent Movie"

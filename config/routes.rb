@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#create"
   get "signin", to: "sessions#new", as: "signin"
 
+  post "/upcs" => "dvds#upc", as: "upcs"
+
   root "sessions#new"
 
   resources :auth, only: :show

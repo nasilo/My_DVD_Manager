@@ -1,4 +1,7 @@
-<h1 class="content-box">Your DVDs</h1>
+<div class="content-box">
+  <h1><%= @user.name %>'s DVDs</h1>
+  <%= link_to "Add a DVD", new_dvd_path %>
+</div>
 
 <% @dvds.each do |dvd| %>
   <%= dvd.title %>
