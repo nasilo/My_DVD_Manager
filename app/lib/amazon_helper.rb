@@ -82,18 +82,26 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["Creator"].nil?
-          item["ItemAttributes"]["Creator"].each do |creator|
-            if creator["@Role"] == "Producer"
-              producer << creator["@@text"]
+          if item["ItemAttributes"]["Creator"].class == Array
+            item["ItemAttributes"]["Creator"].each do |creator|
+              if creator["@Role"] == "Producer"
+                producer << creator["@@text"]
+              end
             end
+          elsif item["ItemAttributes"]["Creator"]["@Role"] == "Producer"
+            producer << item["ItemAttributes"]["Creator"]["@@text"]
           end
         end
       end
     elsif !@response["ItemAttributes"]["Creator"].nil?
-      @response["ItemAttributes"]["Creator"].each do |creator|
-        if creator["@Role"] == "Producer"
-          producer << creator["@@text"]
+      if @response["ItemAttributes"]["Creator"].class == Array
+        @response["ItemAttributes"]["Creator"].each do |creator|
+          if creator["@Role"] == "Producer"
+            producer << creator["@@text"]
+          end
         end
+      elsif @response["ItemAttributes"]["Creator"]["@Role"] == "Producer"
+        producer << @response["ItemAttributes"]["Creator"]["@@text"]
       end
     end
     producer.join(", ")
@@ -104,18 +112,26 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["ItemAttributes"]["Creator"].nil?
-          item["ItemAttributes"]["Creator"].each do |creator|
-            if creator["@Role"] == "Writer"
-              writer << creator["@@text"]
+          if item["ItemAttributes"]["Creator"].class == Array
+            item["ItemAttributes"]["Creator"].each do |creator|
+              if creator["@Role"] == "Writer"
+                writer << creator["@@text"]
+              end
             end
+          elsif item["ItemAttributes"]["Creator"]["@Role"] == "Writer"
+            writer << item["ItemAttributes"]["Creator"]["@@text"]
           end
         end
       end
     elsif !@response["ItemAttributes"]["Creator"].nil?
-      @response["ItemAttributes"]["Creator"].each do |creator|
-        if creator["@Role"] == "Writer"
-          writer << creator["@@text"]
+      if @response["ItemAttributes"]["Creator"].class == Array
+        @response["ItemAttributes"]["Creator"].each do |creator|
+          if creator["@Role"] == "Writer"
+            writer << creator["@@text"]
+          end
         end
+      elsif @response["ItemAttributes"]["Creator"]["@Role"] == "Writer"
+        writer << @response["ItemAttributes"]["Creator"]["@@text"]
       end
     end
     writer.join(", ")
@@ -126,11 +142,25 @@ class AmazonHelper
     if @response.class == Array
       @response.each do |item|
         if !item["EditorialReviews"].nil?
-          synopsis = item["EditorialReviews"]["EditorialReview"]["Content"]
+          if item["EditorialReviews"]["EditorialReview"].class == Array
+            item["EditorialReviews"]["EditorialReview"].each do |review|
+              synopsis += review["Content"]
+              synopsis += "\n-#{review['Source']}\n"
+            end
+          else
+            synopsis = item["EditorialReviews"]["EditorialReview"]["Content"]
+          end
         end
       end
     elsif !@response["EditorialReviews"].nil?
+      if @response["EditorialReviews"]["EditorialReview"].class == Array
+        @response["EditorialReviews"]["EditorialReview"].each do |review|
+          synopsis += review["Content"]
+          synopsis += "\n-#{review['Source']}\n"
+        end
+      else
         synopsis = @response["EditorialReviews"]["EditorialReview"]["Content"]
+      end
     end
     synopsis
   end
