@@ -6,6 +6,10 @@ class DvdsController < ApplicationController
     @dvds = @user.dvds
   end
 
+  def show
+    @dvd = Dvd.find(params[:id])
+  end
+
   def new
     @dvd = Dvd.new
     @upc = Upc.new

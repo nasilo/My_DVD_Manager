@@ -1,0 +1,18 @@
+<div class="content-box row">
+  <h1><%= @dvd.title %> </h1>
+  <div class="small-6 column text-left">
+    <p><b>Synopsis:</b> <%= @dvd.synopsis %> </p>
+    <p><b>Cast:</b> <%= @dvd.cast %> </p>
+    <p><b>Director:</b> <%= @dvd.director %> </p>
+    <p><b>Writer:</b> <%= @dvd.writer %> </p>
+    <p><b>Producer:</b> <%= @dvd.producer %> </p>
+    <p><b>Studio:</b> <%= @dvd.studio %> </p>
+    <p><b>Rating:</b> <%= @dvd.mpaa_rating %> </p>
+    <p><b>Movie Length:</b> <%= @dvd.run_time %> </p>
+    <p><b>Dvd Release Date:</b> <%= @dvd.release_date %> </p>
+    <p><b>Dvd Added:</b> <%= @dvd.created_at %> </p>
+  </div>
+  <div class="small-6 column">
+    <img src=<%= @dvd.image_large %> />
+  </div>
+</div>
