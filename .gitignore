@@ -17,6 +17,7 @@
 /node_modules
 /app/assets/javascripts/bundle.js
 /react/coverage
+/spec/cassettes/*
 
 # Ignore Byebug command history file.
 .byebug_history

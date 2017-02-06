@@ -14,5 +14,11 @@
   </div>
   <div class="small-6 column">
     <img src=<%= @dvd.image_large %> />
+    <div class="text-left">
+      <p><b>User Rating:</b> <%= @dvd.user_rating %> </p>
+      <p><b>Purchase Price:</b> <%= @dvd.purchase_price %> </p>
+      <p><b>Purchase Location:</b> <%= @dvd.purchase_location %> </p>
+      <%= link_to "Edit", edit_dvd_path %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user adds a DVD" do
+feature "user adds a DVD", vcr: true do
   scenario "user can populate the form with a upc" do
     login_with_facebook("New_User")
     visit new_dvd_path
@@ -17,7 +17,7 @@ feature "user adds a DVD" do
     visit new_dvd_path
     fill_in "Upc", with: "027616854735"
     click_button "Search UPC"
-    click_button "Add DVD"
+    click_button("Add DVD")
 
     expect(page).to have_content "The Terminator"
   end

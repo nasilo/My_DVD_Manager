@@ -13,6 +13,7 @@ class DvdsController < ApplicationController
   def new
     @dvd = Dvd.new
     @upc = Upc.new
+    @submit_text = "Add DVD"
   end
 
   def create
@@ -49,8 +50,41 @@ class DvdsController < ApplicationController
     newupc = Upc.new
     newupc.upc = @upc.upc
     @upc = newupc
+    @submit_text = "Add DVD"
 
     render :new
+  end
+
+  def edit
+    @title = Dvd.find(params[:id]).title
+    @dvd = Dvd.find(params[:id])
+    @submit_text = "Edit DVD"
+
+    unless can_change?(@dvd)
+      raise ActionController::RoutingError.new("Not Found")
+    end
+
+    @user_can_change = false
+    unless current_user.nil?
+      @user_can_change = can_change?(@dvd)
+    end
+  end
+
+  def update
+    @dvd = Dvd.find(params[:id])
+
+    unless can_change?(@dvd)
+      raise ActionController::RoutingError.new("Not Found")
+    end
+
+    if @dvd.update(dvd_params)
+      flash[:notice] = "Edits Saved"
+      redirect_to @dvd
+    else
+      @title = Dvd.find(params[:id]).title
+      flash[:notice] = @dvd.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   private
@@ -61,6 +95,10 @@ class DvdsController < ApplicationController
 
   def upc_params
     params.require(:upc).permit(:upc)
+  end
+
+  def can_change?(dvd)
+    current_user == dvd.user
   end
 
   def populate_form(dvd_object)
