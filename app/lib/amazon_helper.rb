@@ -11,7 +11,7 @@ class AmazonHelper
     key      = ENV['AWS_ACCESS_KEY_ID']
     secret   = ENV['AWS_SECRET_KEY']
     endpoint = 'https://webservices.amazon.com'
-    RightScale::CloudApi::ECS::PA::Manager.new(key, secret, endpoint)
+    RightScale::CloudApi::ECS::PA::Manager.new(key, secret, endpoint, :cache => true)
   end
 
   def dvd_search

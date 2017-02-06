@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://webservices.amazon.com/onca/xml?AWSAccessKeyId=<AWS_ACCESS_KEY_ID>&AssociateTag=ASSOCIATE_TAG&IdType=UPC&ItemId=027616854735&Operation=ItemLookup&ResponseGroup=EditorialReview,Images,ItemAttributes,Tracks&SearchIndex=Movies&Signature=P5rPN9TzbFMgO75snr2eaqaXylbmrS%2BUiMjQPluHCgQ=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-02-06T17:03:47.000Z&Version=2013-08-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Feb 2017 17:03:47 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Vary:
+      - Accept-Encoding,User-Agent
+      Keep-Alive:
+      - timeout=2, max=16
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '<?xml version="1.0" ?><ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01"><OperationRequest><HTTPHeaders><Header
+        Name="UserAgent" Value="Ruby"></Header></HTTPHeaders><RequestId>e8d6a5f2-0aab-48ae-b0d9-f229d047bdce</RequestId><Arguments><Argument
+        Name="AWSAccessKeyId" Value="<AWS_ACCESS_KEY_ID>"></Argument><Argument Name="AssociateTag"
+        Value="ASSOCIATE_TAG"></Argument><Argument Name="IdType" Value="UPC"></Argument><Argument
+        Name="ItemId" Value="027616854735"></Argument><Argument Name="Operation" Value="ItemLookup"></Argument><Argument
+        Name="ResponseGroup" Value="EditorialReview,Images,ItemAttributes,Tracks"></Argument><Argument
+        Name="SearchIndex" Value="Movies"></Argument><Argument Name="SignatureMethod"
+        Value="HmacSHA256"></Argument><Argument Name="SignatureVersion" Value="2"></Argument><Argument
+        Name="Timestamp" Value="2017-02-06T17:03:47.000Z"></Argument><Argument Name="Version"
+        Value="2013-08-01"></Argument><Argument Name="Signature" Value="P5rPN9TzbFMgO75snr2eaqaXylbmrS+UiMjQPluHCgQ="></Argument><Argument
+        Name="Service" Value="AWSECommerceService"></Argument></Arguments><RequestProcessingTime>0.0230922270000000</RequestProcessingTime></OperationRequest><Items><Request><IsValid>True</IsValid><ItemLookupRequest><IdType>UPC</IdType><ItemId>027616854735</ItemId><ResponseGroup>EditorialReview</ResponseGroup><ResponseGroup>Images</ResponseGroup><ResponseGroup>ItemAttributes</ResponseGroup><ResponseGroup>Tracks</ResponseGroup><SearchIndex>Movies</SearchIndex><VariationPage>All</VariationPage></ItemLookupRequest></Request><Item><ASIN>B00005N5S5</ASIN><DetailPageURL>https://www.amazon.com/Terminator-Arnold-Schwarzenegger/dp/B00005N5S5%3FSubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00005N5S5</DetailPageURL><ItemLinks><ItemLink><Description>Technical
+        Details</Description><URL>https://www.amazon.com/Terminator-Arnold-Schwarzenegger/dp/tech-data/B00005N5S5%3FSubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>Add
+        To Baby Registry</Description><URL>https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00005N5S5%26SubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>Add
+        To Wedding Registry</Description><URL>https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00005N5S5%26SubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>Add
+        To Wishlist</Description><URL>https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00005N5S5%26SubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>Tell
+        A Friend</Description><URL>https://www.amazon.com/gp/pdp/taf/B00005N5S5%3FSubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>All
+        Customer Reviews</Description><URL>https://www.amazon.com/review/product/B00005N5S5%3FSubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink><ItemLink><Description>All
+        Offers</Description><URL>https://www.amazon.com/gp/offer-listing/B00005N5S5%3FSubscriptionId%3D<AWS_ACCESS_KEY_ID>%26tag%3DASSOCIATE_TAG%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005N5S5</URL></ItemLink></ItemLinks><SmallImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL75_.jpg</URL><Height
+        Units="pixels">75</Height><Width Units="pixels">54</Width></SmallImage><MediumImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL160_.jpg</URL><Height
+        Units="pixels">160</Height><Width Units="pixels">115</Width></MediumImage><LargeImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL.jpg</URL><Height
+        Units="pixels">500</Height><Width Units="pixels">358</Width></LargeImage><ImageSets><ImageSet
+        Category="variant"><SwatchImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL._SL30_.jpg</URL><Height
+        Units="pixels">30</Height><Width Units="pixels">21</Width></SwatchImage><SmallImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL._SL75_.jpg</URL><Height
+        Units="pixels">75</Height><Width Units="pixels">53</Width></SmallImage><ThumbnailImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL._SL75_.jpg</URL><Height
+        Units="pixels">75</Height><Width Units="pixels">53</Width></ThumbnailImage><TinyImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL._SL110_.jpg</URL><Height
+        Units="pixels">110</Height><Width Units="pixels">77</Width></TinyImage><MediumImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL._SL160_.jpg</URL><Height
+        Units="pixels">160</Height><Width Units="pixels">113</Width></MediumImage><LargeImage><URL>https://images-na.ssl-images-amazon.com/images/I/513QE0jAvrL.jpg</URL><Height
+        Units="pixels">500</Height><Width Units="pixels">352</Width></LargeImage><HiResImage><URL>https://images-na.ssl-images-amazon.com/images/I/91m3384ERoL.jpg</URL><Height
+        Units="pixels">2560</Height><Width Units="pixels">1801</Width></HiResImage></ImageSet><ImageSet
+        Category="primary"><SwatchImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL30_.jpg</URL><Height
+        Units="pixels">30</Height><Width Units="pixels">21</Width></SwatchImage><SmallImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL75_.jpg</URL><Height
+        Units="pixels">75</Height><Width Units="pixels">54</Width></SmallImage><ThumbnailImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL75_.jpg</URL><Height
+        Units="pixels">75</Height><Width Units="pixels">54</Width></ThumbnailImage><TinyImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL110_.jpg</URL><Height
+        Units="pixels">110</Height><Width Units="pixels">79</Width></TinyImage><MediumImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL._SL160_.jpg</URL><Height
+        Units="pixels">160</Height><Width Units="pixels">115</Width></MediumImage><LargeImage><URL>https://images-na.ssl-images-amazon.com/images/I/51X%2BnENOAAL.jpg</URL><Height
+        Units="pixels">500</Height><Width Units="pixels">358</Width></LargeImage></ImageSet></ImageSets><ItemAttributes><Actor>Arnold
+        Schwarzenegger</Actor><Actor>Linda Hamilton</Actor><Actor>Michael Biehn</Actor><Actor>Paul
+        Winfield</Actor><Actor>Lance Henriksen</Actor><AspectRatio>1.85:1</AspectRatio><AudienceRating>R
+        (Restricted)</AudienceRating><Binding>DVD</Binding><Brand>MGM</Brand><CatalogNumberList><CatalogNumberListElement>FOXS128330DVD</CatalogNumberListElement><CatalogNumberListElement>MN-B00005N5S5</CatalogNumberListElement><CatalogNumberListElement>1001182</CatalogNumberListElement><CatalogNumberListElement>LNMN-B00005N5S5</CatalogNumberListElement><CatalogNumberListElement>POMN-B00005N5S5</CatalogNumberListElement></CatalogNumberList><Creator
+        Role="Cinematographer">Adam Greenberg</Creator><Creator Role="Writer">James
+        Cameron</Creator><Creator Role="Producer">Derek Gibson</Creator><Creator Role="Producer">Gale
+        Anne Hurd</Creator><Creator Role="Writer">Gale Anne Hurd</Creator><Creator
+        Role="Producer">John Daly</Creator><Creator Role="Writer">William Wisher Jr.</Creator><Director>James
+        Cameron</Director><EAN>9780792850977</EAN><EANList><EANListElement>0027616854735</EANListElement><EANListElement>9780792850977</EANListElement></EANList><Edition>Face
+        Plate</Edition><Feature>Condition: New</Feature><Feature>Format: DVD</Feature><Feature>Anamorphic;
+        Closed-captioned; Color; Dolby; DTS Surround Sound; DVD; Subtitled; Widescreen;
+        NTSC</Feature><Format>Multiple Formats</Format><Format>Anamorphic</Format><Format>Closed-captioned</Format><Format>Color</Format><Format>Dolby</Format><Format>DTS
+        Surround Sound</Format><Format>NTSC</Format><Format>Subtitled</Format><Format>Widescreen</Format><IsAdultProduct>0</IsAdultProduct><ISBN>0792850971</ISBN><ItemDimensions><Height
+        Units="hundredths-inches">50</Height><Length Units="hundredths-inches">750</Length><Weight
+        Units="hundredths-pounds">30</Weight><Width Units="hundredths-inches">525</Width></ItemDimensions><Label>MGM
+        (Video &amp; DVD)</Label><Languages><Language><Name>English</Name><Type>Subtitled</Type></Language><Language><Name>Spanish</Name><Type>Subtitled</Type></Language><Language><Name>French</Name><Type>Subtitled</Type></Language><Language><Name>English</Name><Type>Original
+        Language</Type><AudioFormat>Dolby Digital 2.0 Mono</AudioFormat></Language><Language><Name>French</Name><Type>Original
+        Language</Type><AudioFormat>Dolby Digital 5.1 EX</AudioFormat></Language><Language><Name>Spanish</Name><Type>Original
+        Language</Type><AudioFormat>Dolby Digital 5.1 EX</AudioFormat></Language><Language><Name>English</Name><Type>Unknown</Type><AudioFormat>Dolby
+        Digital 2.0 Mono</AudioFormat></Language></Languages><ListPrice><Amount>1498</Amount><CurrencyCode>USD</CurrencyCode><FormattedPrice>$14.98</FormattedPrice></ListPrice><Manufacturer>MGM
+        (Video &amp; DVD)</Manufacturer><MPN>1001182</MPN><NumberOfDiscs>1</NumberOfDiscs><NumberOfItems>1</NumberOfItems><PackageDimensions><Height
+        Units="hundredths-inches">60</Height><Length Units="hundredths-inches">750</Length><Weight
+        Units="hundredths-pounds">14</Weight><Width Units="hundredths-inches">530</Width></PackageDimensions><PackageQuantity>1</PackageQuantity><PartNumber>1001182</PartNumber><PictureFormat>Widescreen</PictureFormat><ProductGroup>DVD</ProductGroup><ProductTypeName>ABIS_DVD</ProductTypeName><Publisher>MGM
+        (Video &amp; DVD)</Publisher><RegionCode>1</RegionCode><ReleaseDate>2014-08-26</ReleaseDate><RunningTime
+        Units="minutes">107</RunningTime><Studio>MGM (Video &amp; DVD)</Studio><Title>The
+        Terminator</Title><UPC>027616854735</UPC><UPCList><UPCListElement>027616854735</UPCListElement></UPCList></ItemAttributes><EditorialReviews><EditorialReview><Source>Product
+        Description</Source><Content>Arnold Schwarzenegger, Michael Biehn, Linda Hamilton.
+        The blockbuster sci-fi thriller about a killer cyborg from the robot-ruled
+        future sent back in time to stop a woman from giving birth to a future resistance
+        leader. 1984/color/108 min/R/widescreen. &lt;br&gt; There might be a slight
+        change in the artwork of the DVD case to the image on the website, however
+        content is the same.</Content><IsLinkSuppressed>0</IsLinkSuppressed></EditorialReview></EditorialReviews></Item></Items></ItemLookupResponse>'
+    http_version: 
+  recorded_at: Mon, 06 Feb 2017 17:03:48 GMT
+recorded_with: VCR 3.0.1

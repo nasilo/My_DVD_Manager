@@ -21,6 +21,10 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'webmock'
+  gem 'vcr'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do

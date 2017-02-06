@@ -9,7 +9,7 @@
 }
 
 .top-bar-spacer {
-  height: 85px;
+  height: 80px;
 }
 
 .top-bar:hover {
@@ -86,7 +86,7 @@ h1 {
 }
 
 .content {
-  width: 800px;
+  width: 85%;
   margin: auto;
 }
 
@@ -103,7 +103,7 @@ h1 {
 }
 
 .error-msg {
-  width: 750px;
+  width: 85%;
   color: black;
   margin: auto;
   font-family: 'Exo 2', sans-serif;

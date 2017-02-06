@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user visits show page" do
+feature "user visits show page", vcr: true do
   scenario "user can get to show page from index" do
     user_adds_dvd
     click_link "The Terminator"
