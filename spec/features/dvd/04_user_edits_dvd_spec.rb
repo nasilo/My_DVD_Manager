@@ -20,7 +20,7 @@ feature "user edits a dvd", vcr: true do
     fill_in "User rating", with: "5"
     click_button "Edit DVD"
 
-    expect(page).to have_content "Edit Saved"
+    expect(page).to have_content "Edits Saved"
     expect(page).to have_content "User Rating: 5"
   end
 
