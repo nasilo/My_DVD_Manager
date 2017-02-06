@@ -64,6 +64,7 @@ class DvdsController < ApplicationController
       raise ActionController::RoutingError.new("Not Found")
     end
 
+    @delete = true
     @user_can_change = false
     unless current_user.nil?
       @user_can_change = can_change?(@dvd)
@@ -81,10 +82,17 @@ class DvdsController < ApplicationController
       flash[:notice] = "Edits Saved"
       redirect_to @dvd
     else
+      @delete = true
       @title = Dvd.find(params[:id]).title
       flash[:notice] = @dvd.errors.full_messages.to_sentence
       render :edit
     end
+  end
+
+  def destroy
+    @dvd = Dvd.find(params[:id])
+    @dvd.destroy
+    redirect_to dvds_path
   end
 
   private
