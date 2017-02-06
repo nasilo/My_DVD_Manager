@@ -69,5 +69,8 @@
       <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
     <% end %>
     <%= f.submit "#{@submit_text}" %>
+    <% if @delete %>
+      <%= link_to 'Delete', @dvd, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
   </div>
 <% end %>
