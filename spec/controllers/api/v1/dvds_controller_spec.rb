@@ -11,7 +11,7 @@ RSpec.describe Api::V1::DvdsController, type: :controller do
     }
 
     it "should create a UPC" do
-      post :upc, params: { upc: {upc: "086162162688" } }
+      post :upc, params: { upc: "086162162688" }
       upcs = Upc.all.map { |upc| upc.id }
 
       expect(upcs.length).to eq(3)
@@ -19,6 +19,8 @@ RSpec.describe Api::V1::DvdsController, type: :controller do
   end
 
   describe "POST #create", vcr: true do
+    let!(:dvd1) { FactoryGirl.create(:dvd) }
+    let!(:dvd2) { FactoryGirl.create(:dvd) }
     let!(:casablanca) {
       Upc.create(upc: "012569500822")
     }
@@ -31,7 +33,7 @@ RSpec.describe Api::V1::DvdsController, type: :controller do
       }
       upcs = Upc.all.map { |upc| upc.id }
 
-      expect(upcs.length).to eq(1)
+      expect(upcs.length).to eq(3)
     end
   end
 end

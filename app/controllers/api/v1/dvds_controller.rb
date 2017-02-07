@@ -2,6 +2,8 @@ class Api::V1::DvdsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
+    binding.pry
+    # data = JSON.parse(body.read)
     @dvd = Dvd.new(dvd_params)
     @dvd.user = current_user
     add_images(@dvd)
@@ -21,10 +23,12 @@ class Api::V1::DvdsController < ApplicationController
   end
 
   def upc
-    if !Upc.where(upc: upc_params[:upc]).empty?
-      @upc = Upc.where(upc: upc_params[:upc]).first
+    binding.pry
+    # data = JSON.parse(body.read)
+    if !Upc.where(upc: params[:upc]).empty?
+      @upc = Upc.where(upc: params[:upc]).first
     else
-      @upc = Upc.create(upc_params)
+      @upc = Upc.create(upc: params[:upc])
     end
     @dvd = Dvd.new
     @dvd.upc = @upc
@@ -39,26 +43,22 @@ class Api::V1::DvdsController < ApplicationController
     params.require(:dvd).permit(:upc_id, :title, :purchase_price, :purchase_location, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
   end
 
-  def upc_params
-    params.require(:upc).permit(:upc)
-  end
-
-  def can_change?(dvd)
-    current_user == dvd.user
-  end
-
   def populate_form(dvd_object)
     data = AmazonHelper.new(dvd_object.upc.upc)
-    dvd_object.title = data.title
-    dvd_object.mpaa_rating = data.mpaa
-    dvd_object.synopsis = data.synopsis
-    dvd_object.studio = data.studio
-    dvd_object.cast = data.cast
-    dvd_object.writer = data.writer
-    dvd_object.producer = data.producer
-    dvd_object.director = data.director
-    dvd_object.release_date = data.release_date
-    dvd_object.run_time = data.run_time
+    if data.error
+      flash[:notice] = data.error_message
+    else
+      dvd_object.title = data.title
+      dvd_object.mpaa_rating = data.mpaa
+      dvd_object.synopsis = data.synopsis
+      dvd_object.studio = data.studio
+      dvd_object.cast = data.cast
+      dvd_object.writer = data.writer
+      dvd_object.producer = data.producer
+      dvd_object.director = data.director
+      dvd_object.release_date = data.release_date
+      dvd_object.run_time = data.run_time
+    end
     dvd_object
   end
 

@@ -1,0 +1,26 @@
+{"dvd":{
+  "id":null,
+  "title":"True Lies",
+  "purchase_price":null,
+  "purchase_location":null,
+  "user_rating":null,
+  "mpaa_rating":"R (Restricted)",
+  "synopsis":"A Washington wife discovers her computer-salesman husband is a spy out to stop nuclear terrorists.",
+  "studio":"20th Century Fox",
+  "cast":"Arnold Schwarzenegger, Jamie Lee Curtis, Tom Arnold, Bill Paxton, Tia Carrere",
+  "writer":"James Cameron, Claude Zidi, Didier Kaminka, Simon Michaël",
+  "producer":"James Cameron, Lawrence Kasanoff, Pamela Easley",
+  "director":"James Cameron",
+  "release_date":"2012-01-01",
+  "run_time":"141 minutes",
+  "created_at":null,
+  "updated_at":null,
+  "user_id":null,
+  "upc_id":1155,
+  "image_small":null,
+  "image_large":null
+},
+"upc":{
+  "id":1155,
+  "upc":"086162162688"
+}}
