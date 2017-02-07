@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:destroy, :new]
   resources :users
   resources :dvds
+
+  namespace :api do
+    namespace :v1 do
+      resources :dvds, only: [:create]
+      post "/upcs" => "dvds#upc", as: "upcs"
+    end
+  end
 end

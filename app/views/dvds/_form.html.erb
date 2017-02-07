@@ -25,7 +25,7 @@
   </div>
 
   <div class="small-12 medium-6 column">
-    <%= f.label :mpaa_rating %>
+    <%= f.label :mpaa_rating, "MPAA Rating" %>
     <%= f.text_field :mpaa_rating %>
   </div>
 
@@ -64,10 +64,11 @@
     <%= f.text_field :studio %>
   </div>
 
-  <div class="small-12 medium-6 column" id="dvd_submit">
+  <div class="small-12 column" id="dvd_submit">
     <% if !params[:upc].nil? %>
       <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
     <% end %>
+    <br>
     <%= f.submit "#{@submit_text}" %>
     <% if @delete %>
       <%= link_to 'Delete', @dvd, method: :delete, data: { confirm: "Are you sure?" } %>
