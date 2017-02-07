@@ -4,7 +4,8 @@ class AmazonHelper
 
   def initialize(upc)
     @upc = upc
-    @response = dvd_search
+    @response = dvd_search["Item"]
+    @errors = dvd_search["Request"]["Errors"]
   end
 
   def paa
@@ -22,7 +23,27 @@ class AmazonHelper
       'SearchIndex' => 'Movies',
       'ResponseGroup' => 'EditorialReview,Images,ItemAttributes,Tracks',
     )
-    response["ItemLookupResponse"]["Items"]["Item"]
+    response["ItemLookupResponse"]["Items"]
+  end
+
+  def error
+    if @errors
+      return true
+    end
+  end
+
+  def error_message
+    output = 'Amazon says: '
+    if @errors
+      if @errors.class == Array
+        @errors.each do |error|
+          output += error["Error"]["Message"]
+        end
+      else
+        output += @errors["Error"]["Message"]
+      end
+    end
+    output
   end
 
   def title
@@ -179,12 +200,16 @@ class AmazonHelper
     output_string = ''
     if @response.class == Array
       @response.each do |item|
-        if !item["ItemAttributes"][response_field].nil?
-          output_string = item["ItemAttributes"][response_field]
+        if !item["ItemAttributes"].nil?
+          if !item["ItemAttributes"][response_field].nil?
+            output_string = item["ItemAttributes"][response_field]
+          end
         end
       end
-    elsif !@response["ItemAttributes"][response_field].nil?
-      output_string = @response["ItemAttributes"][response_field]
+    elsif !@response["ItemAttributes"].nil?
+      if !@response["ItemAttributes"][response_field].nil?
+        output_string = @response["ItemAttributes"][response_field]
+      end
     end
     output_string
   end

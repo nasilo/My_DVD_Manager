@@ -111,16 +111,20 @@ class DvdsController < ApplicationController
 
   def populate_form(dvd_object)
     data = AmazonHelper.new(dvd_object.upc.upc)
-    dvd_object.title = data.title
-    dvd_object.mpaa_rating = data.mpaa
-    dvd_object.synopsis = data.synopsis
-    dvd_object.studio = data.studio
-    dvd_object.cast = data.cast
-    dvd_object.writer = data.writer
-    dvd_object.producer = data.producer
-    dvd_object.director = data.director
-    dvd_object.release_date = data.release_date
-    dvd_object.run_time = data.run_time
+    if data.error
+      flash[:notice] = data.error_message
+    else
+      dvd_object.title = data.title
+      dvd_object.mpaa_rating = data.mpaa
+      dvd_object.synopsis = data.synopsis
+      dvd_object.studio = data.studio
+      dvd_object.cast = data.cast
+      dvd_object.writer = data.writer
+      dvd_object.producer = data.producer
+      dvd_object.director = data.director
+      dvd_object.release_date = data.release_date
+      dvd_object.run_time = data.run_time
+    end
     dvd_object
   end
 
