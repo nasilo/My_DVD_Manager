@@ -1,8 +1,8 @@
-<div class="content-box row">
+<div id="new_dvd" class="content-box row">
 
   <%= form_for(@upc) do |f| %>
     <div class="small-12 column">
-      <%= f.label :upc %>
+      <%= f.label :upc, "UPC" %>
       <%= f.text_field :upc %>
 
       <%= f.submit "Search UPC" %>

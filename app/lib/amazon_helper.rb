@@ -193,11 +193,11 @@ class AmazonHelper
     output_string = ''
     if @response.class == Array
       @response.each do |item|
-        if !item[image_size]["URL"].nil?
+        if !item[image_size].nil?
           output_string = item[image_size]["URL"]
         end
       end
-    elsif !@response[image_size]["URL"].nil?
+    elsif !@response[image_size].nil?
       output_string = @response[image_size]["URL"]
     end
     output_string
