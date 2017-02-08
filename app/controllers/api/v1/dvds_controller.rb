@@ -3,7 +3,6 @@ class Api::V1::DvdsController < ApplicationController
 
   def create
     binding.pry
-    # data = JSON.parse(body.read)
     @dvd = Dvd.new(dvd_params)
     @dvd.user = current_user
     add_images(@dvd)
@@ -23,8 +22,6 @@ class Api::V1::DvdsController < ApplicationController
   end
 
   def upc
-    binding.pry
-    # data = JSON.parse(body.read)
     if !Upc.where(upc: params[:upc]).empty?
       @upc = Upc.where(upc: params[:upc]).first
     else

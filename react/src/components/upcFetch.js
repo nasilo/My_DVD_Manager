@@ -44,9 +44,9 @@ upcFetch(upcCode) {
       dvdDirector: newDvdDirector,
       dvdReleaseDate: newDvdReleaseDate,
       dvdRunTime: newDvdRunTime,
-    });
+      });
+    })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
-
 
 export default upcFetch;

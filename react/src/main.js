@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 import NewDvdApp from './components/NewDvdApp';
 
 $(function() {
-  ReactDOM.render(
-    < NewDvdApp />,
-    document.getElementById('app')
-  );
+  if (document.getElementById('test')) {
+    ReactDOM.render(
+      < NewDvdApp />,
+      document.getElementById('new_dvd')
+    );
+  }
 });
