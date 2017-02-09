@@ -37,7 +37,6 @@ class Api::V1::DvdsController < ApplicationController
       @error.message = @dvd.errors.full_messages.to_sentence
       @upc = @dvd.upc
 
-      binding.pry
       render json: {dvd: @dvd, upc: @upc, error: @error}
     end
   end
