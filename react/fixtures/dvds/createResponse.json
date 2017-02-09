@@ -1,0 +1,28 @@
+{
+  "dvd":{
+    "id":null,
+    "title":"Casablanca (Snap Case)",
+    "purchase_price":"",
+    "purchase_location":"",
+    "user_rating":null,
+    "mpaa_rating":"PG (Parental Guidance Suggested)",
+    "synopsis":"The story of a struggle among individuals who have sought refuge in Casablanca after fleeing Nazi occupied Europe.<br><b>Genre: </b>Feature Film-Drama<br><b>Rating: </b>PG<br><b>Release Date: </b>7-JUN-2005<br><b>Media Type: </b>DVD",
+    "studio":"Warner Home Video",
+    "cast":"Humphrey Bogart, Ingrid Bergman, Paul Henreid, Claude Rains, Conrad Veidt",
+    "writer":"Casey Robinson, Howard Koch, Joan Alison, Julius J. Epstein, Murray Burnett, Philip G. Epstein",
+    "producer":"Hal B. Wallis",
+    "director":"Michael Curtiz",
+    "release_date":"2000-02-15",
+    "run_time":"139 minutes",
+    "created_at":null,
+    "updated_at":null,
+    "user_id":1,
+    "upc_id":18,
+    "image_small":"https://images-na.ssl-images-amazon.com/images/I/51Ih%2Bl%2BGY5L._SL160_.jpg",
+    "image_large":"https://images-na.ssl-images-amazon.com/images/I/51Ih%2Bl%2BGY5L.jpg"
+  },
+  "upc":{
+    "id":18,
+    "upc":"012569500822"
+  }
+}

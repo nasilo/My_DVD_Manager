@@ -23,7 +23,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'webmock'
   gem 'vcr'
-  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
 end
 

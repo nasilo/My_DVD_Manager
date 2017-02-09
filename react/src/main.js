@@ -1,10 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NewDvdApp from './components/NewDvdApp';
 
 $(function() {
-  ReactDOM.render(
-    <h1>Boo yaa</h1>,
-    document.getElementById('app')
-  );
+  if (document.getElementById('test')) {
+    ReactDOM.render(
+      < NewDvdApp />,
+      document.getElementById('new_dvd')
+    );
+  }
 });

@@ -36,6 +36,10 @@
   color: #89BA99;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   /*background-color: #05A0A8;*/
   background: url(dvds.jpg) no-repeat center center fixed;
