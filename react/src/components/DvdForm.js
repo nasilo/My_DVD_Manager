@@ -3,8 +3,7 @@ import React from 'react';
 const DvdForm = props => {
   return(
     <div>
-      <h1>Woot</h1>
-      <form className="new_dvd" id="new_dvd">
+      <form className="new_dvd" onSubmit={props.handleDvdSubmit}>
         <div className="small-10 medium-6 column">
           <label htmlFor="dvd_purchase_price">
             Purchase price

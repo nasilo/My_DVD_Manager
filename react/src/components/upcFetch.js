@@ -20,7 +20,6 @@ upcFetch(upcCode) {
   })
   .then(response => response.json())
   .then(body => {
-    debugger;
     let newUpcId = body.upc.id;
     let newDvdTitle = body.dvd.title;
     let newDvdMpaaRating = body.dvd.mpaa_rating;

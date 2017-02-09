@@ -33,15 +33,9 @@ class AmazonHelper
   end
 
   def error_message
-    output = 'Amazon says: '
+    output = ''
     if @errors
-      if @errors.class == Array
-        @errors.each do |error|
-          output += error["Error"]["Message"]
-        end
-      else
-        output += @errors["Error"]["Message"]
-      end
+      output = "Sorry but no records could be found for the UPC: #{@upc}. Please double check the code or begin entering the movie info now, sorry for the inconvienence."
     end
     output
   end

@@ -1,8 +1,27 @@
 class Api::V1::DvdsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index
+    @dvd = Dvd.all
+    render json: { dvds: @dvd }
+  end
+
+  def upc
+    if !Upc.where(upc: params[:upc]).empty?
+      @upc = Upc.where(upc: params[:upc]).first
+    else
+      @upc = Upc.create(upc: params[:upc])
+    end
+    @error = ErrorObject.new
+    @dvd = Dvd.new
+    @dvd.upc = @upc
+    populate_form(@dvd, @error)
+
+    render json: {dvd: @dvd, upc: @upc, error: @error}
+  end
+
   def create
-    binding.pry
+    @error = ErrorObject.new
     @dvd = Dvd.new(dvd_params)
     @dvd.user = current_user
     add_images(@dvd)
@@ -12,26 +31,15 @@ class Api::V1::DvdsController < ApplicationController
 
     if @dvd.save
       flash[:notice] = "DVD added!"
-      redirect_to dvds_path
+      redirect_to '/dvds'
     else
-      flash[:notice] = @dvd.errors.full_messages.to_sentence
+      @error.state = true
+      @error.message = @dvd.errors.full_messages.to_sentence
       @upc = @dvd.upc
 
-      render json: {dvd: @dvd, upc: @upc}
+      binding.pry
+      render json: {dvd: @dvd, upc: @upc, error: @error}
     end
-  end
-
-  def upc
-    if !Upc.where(upc: params[:upc]).empty?
-      @upc = Upc.where(upc: params[:upc]).first
-    else
-      @upc = Upc.create(upc: params[:upc])
-    end
-    @dvd = Dvd.new
-    @dvd.upc = @upc
-    populate_form(@dvd)
-
-    render json: {dvd: @dvd, upc: @upc}
   end
 
   private
@@ -40,10 +48,11 @@ class Api::V1::DvdsController < ApplicationController
     params.require(:dvd).permit(:upc_id, :title, :purchase_price, :purchase_location, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
   end
 
-  def populate_form(dvd_object)
+  def populate_form(dvd_object, error_object)
     data = AmazonHelper.new(dvd_object.upc.upc)
     if data.error
-      flash[:notice] = data.error_message
+      error_object.state = true
+      error_object.message = data.error_message
     else
       dvd_object.title = data.title
       dvd_object.mpaa_rating = data.mpaa
