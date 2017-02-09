@@ -1,12 +1,15 @@
-<div class="content-box">
-  <h1>Sign Up</h1>
+<div  class='welcome'>
+  <%= render 'layouts/navbar' %>
+  <div class="content-box">
+    <h1>Sign Up</h1>
 
-  <%= form_for @user do |f| %>
-    <div class="form-inputs">
-      <%= f.text_field :name, label: false, placeholder: "UserName" %>
-    </div>
-    <div class="form-actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+    <%= form_for @user do |f| %>
+      <div class="form-inputs">
+        <%= f.text_field :name, label: false, placeholder: "UserName" %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
 </div>

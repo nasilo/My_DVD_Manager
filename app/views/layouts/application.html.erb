@@ -14,34 +14,6 @@
 
 
   <body>
-    <nav class="top-bar small-12 columns" data-topbar role="navigation">
-      <ul class="title-area small-3 columns" >
-        <li class="name">
-          <h1><a href="/dvds">MDVDM</a></h1>
-        </li>
-      </ul>
-
-      <ul class="right">
-        <% if user_signed_in? %>
-          <li class='right-item nav-link sign-out'> <%= link_to 'Sign Out', session_path(current_user), :method => :delete %> </li>
-        <% else %>
-          <li class='right-item sign-in'> <%= link_to 'Sign In', signin_path %> </li>
-        <% end %>
-      </ul>
-    </nav>
-
-    <div class="top-bar-spacer"></div>
-
-    <div class='error-msgs'>
-      <% flash.each do |name, msg| %>
-        <div class='error-msg'>
-          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-        </div class='error'>
-      <% end %>
-    </div>
-
-    <div class='content'>
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
