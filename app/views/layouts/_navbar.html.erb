@@ -1,18 +1,16 @@
-<nav class="top-bar small-12 columns" data-topbar role="navigation">
-  <ul class="title-area small-3 columns" >
-    <li class="name">
-      <h1><a href="/dvds">MDVDM</a></h1>
-    </li>
-  </ul>
+<% if user_signed_in? %>
+  <nav class="top-bar small-12 columns" data-topbar role="navigation">
+    <ul class="title-area small-3 columns" >
+      <li class="name">
+        <h1><a href="/dvds">MDVDM</a></h1>
+      </li>
+    </ul>
 
-  <ul class="right">
-    <% if user_signed_in? %>
+    <ul class="right">
       <li class='right-item nav-link sign-out'> <%= link_to 'Sign Out', session_path(current_user), :method => :delete %> </li>
-    <% else %>
-      <li class='right-item sign-in'> <%= link_to 'Sign In', signin_path %> </li>
-    <% end %>
-  </ul>
-</nav>
+    </ul>
+  </nav>
+<% end %>
 
 <div class="top-bar-spacer"></div>
 

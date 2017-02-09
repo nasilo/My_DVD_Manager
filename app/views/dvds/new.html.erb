@@ -1,15 +1,18 @@
-<div id="new_dvd" class="content-box row">
-  <div id='test'>
-    <%= form_for(@upc) do |f| %>
-      <div class="small-12 column">
-        <%= f.label :upc, "UPC" %>
-        <%= f.text_field :upc %>
+<div class="dvd-content">
+  <%= render 'layouts/navbar' %>
+  <div id="new_dvd" class="content-box row">
+    <div>
+      <%= form_for(@upc) do |f| %>
+        <div class="small-12 column">
+          <%= f.label :upc, "UPC" %>
+          <%= f.text_field :upc %>
 
-        <%= f.submit "Search UPC" %>
-      </div>
-    <% end %>
+          <%= f.submit "Search UPC" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render 'dvds/form' %>
+
   </div>
-
-  <%= render 'dvds/form' %>
-
 </div>
