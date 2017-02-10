@@ -3,7 +3,12 @@ class DvdsController < ApplicationController
 
   def index
     @user = current_user
-    @dvds = @user.dvds
+    if params[:search]
+      @query = params[:search]
+      @dvds = @user.dvds.search(@query).order("created_at DESC")
+    else
+      @dvds = @user.dvds
+    end
   end
 
   def show
