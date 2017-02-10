@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user edits a dvd", vcr: true do
+xfeature "user edits a dvd", vcr: true do
   before(:each) do
     user_adds_dvd
     click_link "The Terminator"
