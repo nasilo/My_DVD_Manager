@@ -4,7 +4,7 @@ const DvdForm = props => {
   return(
     <div>
       <form className="new_dvd" onSubmit={props.handleDvdSubmit}>
-        <div className="small-10 medium-6 column">
+        <div className="small-12 medium-6 column">
           <label htmlFor="dvd_purchase_price">
             Purchase price
           </label>
@@ -17,7 +17,7 @@ const DvdForm = props => {
           />
         </div>
 
-        <div className="small-10 medium-6 column">
+        <div className="small-12 medium-6 column">
           <label htmlFor="dvd_purchase_location">
             Purchase location
           </label>
@@ -181,6 +181,7 @@ const DvdForm = props => {
             type="submit"
             name="commit"
             value="Add DVD"
+            className="button secondary"
           />
         </div>
       </form>

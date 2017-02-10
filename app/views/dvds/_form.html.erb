@@ -1,10 +1,10 @@
 <%= form_for(@dvd) do |f| %>
-  <div class="small-10 medium-6 column">
+  <div class="small-12 medium-6 column">
     <%= f.label :purchase_price %>
     <%= f.text_field :purchase_price %>
   </div>
 
-  <div class="small-10 medium-6 column">
+  <div class="small-12 medium-6 column">
     <%= f.label :purchase_location %>
     <%= f.text_field :purchase_location %>
   </div>
@@ -69,9 +69,9 @@
       <%= f.hidden_field :upc_id, value: Upc.find_by(upc: params[:upc][:upc]).id %>
     <% end %>
     <br>
-    <%= f.submit "#{@submit_text}" %>
+    <%= f.submit "#{@submit_text}", class: "button secondary" %>
     <% if @delete %>
-      <%= link_to 'Delete', @dvd, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Delete', @dvd, method: :delete, data: { confirm: "Are you sure?" }, class: "button secondary" %>
     <% end %>
   </div>
 <% end %>
