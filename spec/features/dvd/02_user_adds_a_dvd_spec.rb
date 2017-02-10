@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user adds a DVD", vcr: true do
+xfeature "user adds a DVD", vcr: true do
   scenario "user can populate the form with a upc" do
     login_with_facebook("New_User")
     visit new_dvd_path

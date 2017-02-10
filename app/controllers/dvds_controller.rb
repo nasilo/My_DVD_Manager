@@ -3,7 +3,12 @@ class DvdsController < ApplicationController
 
   def index
     @user = current_user
-    @dvds = @user.dvds
+    if params[:search]
+      @query = params[:search]
+      @dvds = @user.dvds.search(@query).order("created_at DESC")
+    else
+      @dvds = @user.dvds
+    end
   end
 
   def show
@@ -58,7 +63,7 @@ class DvdsController < ApplicationController
   def edit
     @title = Dvd.find(params[:id]).title
     @dvd = Dvd.find(params[:id])
-    @submit_text = "Edit DVD"
+    @submit_text = "Save"
 
     unless can_change?(@dvd)
       raise ActionController::RoutingError.new("Not Found")

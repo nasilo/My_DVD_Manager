@@ -40,12 +40,12 @@
   display: none;
 }
 
-.dvd-content {
+/*.dvd-content {
   background-color: #6CA2E7;
-}
+}*/
 
 body {
-  background: url(dvds.jpg) no-repeat center center fixed;
+  background: url(dvds2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -226,8 +226,8 @@ h1 {
   margin-bottom: 0px;
 }
 
-.review-buttons {
-  margin-top: 20px;
+.button {
+  border-radius: 5px;
 }
 
 .item-title {
