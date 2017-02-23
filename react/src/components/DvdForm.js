@@ -175,14 +175,22 @@ const DvdForm = props => {
           />
         </div>
 
-        <div className="small-12 column" id="dvd_submit">
-          <br />
-          <input
-            type="submit"
-            name="commit"
-            value="Add DVD"
-            className="button secondary"
-          />
+        <div className="small-12 column" id="button_group">
+          <div className="small-6 column text-right" id="dvd_submit">
+            <br />
+            <input
+              type="submit"
+              name="commit"
+              value="Add DVD"
+              className="button secondary"
+            />
+          </div>
+          <div className="small-6 column text-left" id="back_button">
+            <br />
+            <a href="/dvds" className="button secondary">
+              Back
+            </a>
+          </div>
         </div>
       </form>
     </div>

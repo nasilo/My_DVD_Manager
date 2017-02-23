@@ -19,6 +19,7 @@ class DvdsController < ApplicationController
     @dvd = Dvd.new
     @upc = Upc.new
     @submit_text = "Add DVD"
+    @path = dvds_path
   end
 
   def create
@@ -38,6 +39,8 @@ class DvdsController < ApplicationController
       newupc = Upc.new
       newupc.upc = @upc.upc
       @upc = newupc
+      @submit_text = "Add DVD"
+      @path = dvds_path
 
       render :new
     end
@@ -56,6 +59,7 @@ class DvdsController < ApplicationController
     newupc.upc = @upc.upc
     @upc = newupc
     @submit_text = "Add DVD"
+    @path = dvds_path
 
     render :new
   end
@@ -64,6 +68,7 @@ class DvdsController < ApplicationController
     @title = Dvd.find(params[:id]).title
     @dvd = Dvd.find(params[:id])
     @submit_text = "Save"
+    @path = dvd_path(@dvd)
 
     unless can_change?(@dvd)
       raise ActionController::RoutingError.new("Not Found")
