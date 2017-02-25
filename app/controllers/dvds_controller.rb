@@ -2,7 +2,7 @@ class DvdsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     if params[:search]
       @query = params[:search]
       @dvds = @user.dvds.search(@query).order("created_at DESC")
@@ -12,14 +12,16 @@ class DvdsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @dvd = Dvd.find(params[:id])
   end
 
   def new
+    @user = current_user
     @dvd = Dvd.new
     @upc = Upc.new
     @submit_text = "Add DVD"
-    @path = dvds_path
+    @path = user_dvds_path(current_user)
   end
 
   def create
@@ -32,7 +34,7 @@ class DvdsController < ApplicationController
 
     if @dvd.save
       flash[:notice] = "DVD added!"
-      redirect_to dvds_path
+      redirect_to user_dvds_path(current_user)
     else
       flash[:notice] = @dvd.errors.full_messages.to_sentence
       @upc = @dvd.upc
@@ -40,7 +42,7 @@ class DvdsController < ApplicationController
       newupc.upc = @upc.upc
       @upc = newupc
       @submit_text = "Add DVD"
-      @path = dvds_path
+      @path = user_dvds_path(current_user)
 
       render :new
     end
@@ -59,16 +61,17 @@ class DvdsController < ApplicationController
     newupc.upc = @upc.upc
     @upc = newupc
     @submit_text = "Add DVD"
-    @path = dvds_path
+    @path = user_dvds_path(current_user)
 
     render :new
   end
 
   def edit
+    @user = current_user
     @title = Dvd.find(params[:id]).title
     @dvd = Dvd.find(params[:id])
     @submit_text = "Save"
-    @path = dvd_path(@dvd)
+    @path = user_dvd_path(current_user, @dvd)
 
     unless can_change?(@dvd)
       raise ActionController::RoutingError.new("Not Found")
@@ -102,7 +105,7 @@ class DvdsController < ApplicationController
   def destroy
     @dvd = Dvd.find(params[:id])
     @dvd.destroy
-    redirect_to dvds_path
+    redirect_to user_dvds_path(current_user)
   end
 
   private

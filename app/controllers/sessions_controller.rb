@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to new_user_path
     else
       session[:user_id] = user.id
-      redirect_to dvds_path
+      redirect_to user_dvds_path(user)
     end
   end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-    redirect_to dvds_path if user_signed_in?
+    redirect_to user_dvds_path(current_user) if user_signed_in?
   end
 
 end
