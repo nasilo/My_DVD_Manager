@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   resources :auth, only: :show
   resources :sessions, only: [:destroy, :new]
-  resources :users
-  resources :dvds
+  resources :users do
+    resources :dvds
+  end
 
   namespace :api do
     namespace :v1 do

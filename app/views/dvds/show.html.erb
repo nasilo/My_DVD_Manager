@@ -20,10 +20,10 @@
         <p><b>User Rating:</b> <%= @dvd.user_rating %> </p>
         <p><b>Purchase Price:</b> <%= @dvd.purchase_price %> </p>
         <p><b>Purchase Location:</b> <%= @dvd.purchase_location %> </p>
-        <%= link_to "Edit", edit_dvd_path, class: "button secondary" %>
-        <%= link_to 'Delete', @dvd, method: :delete,
+        <%= link_to "Edit", edit_user_dvd_path(@user, @dvd), class: "button secondary" %>
+        <%= link_to 'Delete', [@user, @dvd], method: :delete,
           data: { confirm: "Are you sure?" }, class: "button secondary" %>
-        <%= link_to "Back", dvds_path, class: "button secondary" %>
+        <%= link_to "Back", user_dvds_path(@user), class: "button secondary" %>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ require "rails_helper"
 xfeature "user adds a DVD", vcr: true do
   scenario "user can populate the form with a upc" do
     login_with_facebook("New_User")
-    visit new_dvd_path
+    visit new_user_dvd_path
     fill_in "UPC", with: "027616854735"
     click_button "Search UPC"
 
@@ -14,7 +14,7 @@ xfeature "user adds a DVD", vcr: true do
   end
   scenario "user can add a dvd with a upc" do
     login_with_facebook("New_User")
-    visit new_dvd_path
+    visit new_user_dvd_path
     fill_in "UPC", with: "027616854735"
     click_button "Search UPC"
     click_button("Add DVD")

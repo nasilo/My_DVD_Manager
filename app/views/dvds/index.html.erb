@@ -3,7 +3,7 @@
   <div class="content-box">
     <h1><%= @user.name %>'s DVDs</h1>
     <div class="row">
-      <%= form_tag dvds_path, :method => 'get' do %>
+      <%= form_tag user_dvds_path(@user), :method => 'get' do %>
         <div class="small-10 columns">
           <%= text_field_tag :search, params[:search], placeholder: "Search Collection" %>
         </div>
@@ -12,7 +12,7 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Add a DVD", new_dvd_path, class: "button secondary" %>
+    <%= link_to "Add a DVD", new_user_dvd_path(@user), class: "button secondary" %>
   </div>
 
   <div class="itemList row small-up-1 medium-up-3 large-up-5">
@@ -22,7 +22,7 @@
         <% class_name += " end" %>
       <% end %>
       <div key=<%= dvd.id %> class=<%= class_name %>>
-        <%= link_to(dvd) do %>
+        <%= link_to user_dvd_path(@user, dvd) do %>
           <div class="list-item-content">
             <p><%= dvd.title %></p>
             <div>

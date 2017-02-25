@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       session[:auth].clear
       session[:user_id] = @user.id
       flash[:success] = "Registered successfully."
-      redirect_to dvds_path
+      redirect_to user_dvds_path(@user)
     else
       flash[:alert] = "There was a problem registering."
       render :new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     unless @user == current_user
       flash[:warning] = "You are not authorized to view this record."
-      redirect_to dvds_path
+      redirect_to user_dvds_path(current_user)
     end
   end
 
