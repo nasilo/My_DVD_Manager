@@ -31,7 +31,7 @@ class Api::V1::DvdsController < ApplicationController
 
     if @dvd.save
       flash[:notice] = "DVD added!"
-      redirect_to '/dvds'
+      redirect_to "/users/#{current_user.id}/dvds"
     else
       @error.state = true
       @error.message = @dvd.errors.full_messages.to_sentence
