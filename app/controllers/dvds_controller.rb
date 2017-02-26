@@ -3,6 +3,12 @@ class DvdsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
+
+    @user_can_change = false
+    unless current_user.nil?
+      @user_can_change = can_change?(@user)
+    end
+
     if params[:search]
       @query = params[:search]
       @dvds = @user.dvds.search(@query).order("created_at DESC")
@@ -14,6 +20,11 @@ class DvdsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @dvd = Dvd.find(params[:id])
+
+    @user_can_change = false
+    unless current_user.nil?
+      @user_can_change = can_change?(@user)
+    end
   end
 
   def new
@@ -73,21 +84,17 @@ class DvdsController < ApplicationController
     @submit_text = "Save"
     @path = user_dvd_path(current_user, @dvd)
 
-    unless can_change?(@dvd)
+    unless can_change?(User.find(params[:user_id]))
       raise ActionController::RoutingError.new("Not Found")
     end
 
     @delete = true
-    @user_can_change = false
-    unless current_user.nil?
-      @user_can_change = can_change?(@dvd)
-    end
   end
 
   def update
     @dvd = Dvd.find(params[:id])
 
-    unless can_change?(@dvd)
+    unless can_change?(User.find(params[:user_id]))
       raise ActionController::RoutingError.new("Not Found")
     end
 
@@ -118,8 +125,8 @@ class DvdsController < ApplicationController
     params.require(:upc).permit(:upc)
   end
 
-  def can_change?(dvd)
-    current_user == dvd.user
+  def can_change?(user)
+    current_user == user
   end
 
   def populate_form(dvd_object)

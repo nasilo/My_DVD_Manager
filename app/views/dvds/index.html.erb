@@ -12,7 +12,9 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Add a DVD", new_user_dvd_path(@user), class: "button secondary" %>
+    <% if @user_can_change %>
+      <%= link_to "Add a DVD", new_user_dvd_path(@user), class: "button secondary" %>
+    <% end %>
   </div>
 
   <div class="itemList row small-up-1 medium-up-3 large-up-5">
