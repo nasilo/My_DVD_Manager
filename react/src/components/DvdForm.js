@@ -187,7 +187,7 @@ const DvdForm = props => {
           </div>
           <div className="small-6 column text-left" id="back_button">
             <br />
-            <a href=`/users/${props.userId}/dvds` className="button secondary">
+            <a href={`/users/${props.userId}/dvds`} className="button secondary">
               Back
             </a>
           </div>
