@@ -22,12 +22,18 @@ class NewDvdApp extends Component {
       dvdRunTime: '',
       dvdPurchasePrice: '',
       dvdPurchaseLocation: '',
-      dvdUserRating: ''
+      dvdUserRating: '',
+      userId: null
     };
     this.handleUpcSubmit = this.handleUpcSubmit.bind(this);
     this.handleChangeUpc = this.handleChangeUpc.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDvdSubmit = this.handleDvdSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    let newUserId = parseInt($('.dvd-content').first().attr("id"));
+    this.setState({userId: newUserId});
   }
 
   handleUpcSubmit(event) {
@@ -204,6 +210,7 @@ class NewDvdApp extends Component {
           dvdPurchasePrice={this.state.dvdPurchasePrice}
           dvdPurchaseLocation={this.state.dvdPurchaseLocation}
           dvdUserRating={this.state.dvdUserRating}
+          userId={this.state.userId}
           handleInputChange={this.handleInputChange}
           handleDvdSubmit={this.handleDvdSubmit}
         />
