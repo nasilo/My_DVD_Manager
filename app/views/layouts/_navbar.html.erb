@@ -2,11 +2,12 @@
   <nav class="top-bar small-12 columns" data-topbar role="navigation">
     <ul class="title-area small-3 columns" >
       <li class="name">
-        <h1><a href="/dvds">MDVDM</a></h1>
+        <h1><a href="/">MDVDM</a></h1>
       </li>
     </ul>
 
     <ul class="right">
+      <li class='right-item nav-link account-settings'> <%= link_to 'Profile', user_path(current_user) %> </li>
       <li class='right-item nav-link sign-out'> <%= link_to 'Sign Out', session_path(current_user), :method => :delete %> </li>
     </ul>
   </nav>
