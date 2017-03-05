@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305144233) do
+ActiveRecord::Schema.define(version: 20170305165752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 20170305144233) do
     t.integer  "upc_id",            null: false
     t.string   "image_small",       null: false
     t.string   "image_large",       null: false
+    t.integer  "location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "user_id",                           null: false
+    t.string   "name",                              null: false
+    t.text     "url"
+    t.boolean  "online",            default: false
+    t.boolean  "physical_location", default: false
+    t.text     "address"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
 
   create_table "upcs", force: :cascade do |t|
