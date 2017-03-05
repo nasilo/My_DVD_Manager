@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @household_member = UserHouseholdMember.new(household_member_name: @user.name)
+    @household_member = UserHouseholdMember.new
+    @household_member.household_member_name = @user.name
+    @household_member.user = @user
     @user.email = session[:auth]["info"]["email"]
     @user.oauth_uid = session[:auth]["uid"]
     if @user.save

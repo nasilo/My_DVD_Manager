@@ -1,0 +1,20 @@
+<%= render 'layouts/navbar' %>
+<div class="content-box row">
+  <h1><%= @user.name %>'s Account</h1>
+  <div class="small-12 column text-left">
+    <h5>Number of DVDs: <%= @user.dvds.length %></h5>
+    <h5>Household Members:</h5>
+    <ul>
+      <% @user.user_household_members.each do |member| %>
+        <h5><%= member.household_member_name %></h5>
+      <% end %>
+    </ul>
+    <h5>Purchase Locations:</h5>
+    <ul>
+      <% @user.locations.each do |location| %>
+        <h5><%= location.name %></h5>
+      <% end %>
+    </ul>
+    <%= link_to "Back", user_dvds_path(@user), class: "button secondary" %>
+  </div>
+</div>

@@ -14,4 +14,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "foobington#{n}" }
     sequence(:oauth_uid) { |n| n }
   end
+  factory :user_household_member do
+    sequence(:household_member_name) { |n| "foobington#{n}" }
+    user
+  end
 end
