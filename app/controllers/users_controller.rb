@@ -2,9 +2,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @household_member = UserHouseholdMember.new(household_member_name: @user.name)
     @user.email = session[:auth]["info"]["email"]
     @user.oauth_uid = session[:auth]["uid"]
     if @user.save
+      @household_member.save
       session[:auth].clear
       session[:user_id] = @user.id
       flash[:success] = "Registered successfully."
