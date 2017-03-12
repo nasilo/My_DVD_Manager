@@ -29,8 +29,9 @@ class DvdsController < ApplicationController
 
   def new
     @user = current_user
+    @location = Location.new
     @dvd = Dvd.new
-    @dvd.location.build
+    @dvd.location = @location
     @upc = Upc.new
     @submit_text = "Add DVD"
     @path = user_dvds_path(current_user)

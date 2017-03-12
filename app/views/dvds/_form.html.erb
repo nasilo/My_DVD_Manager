@@ -6,12 +6,7 @@
 
   <div class="small-12 medium-6 column">
     <%= f.label :location_id %>
-    <%= f.select(:location_id) do %>
-      <% @user.locations.each do |location| -%>
-        <%= content_tag(:option, location.name, location.id) %>
-      <% end %>
-      <%= content_tag(:option, "Add New Location", "new") %>
-    <% end %>
+    <%= f.collection_select(:location_id, @user.locations, :id, :name) %>
   </div>
 
   <div class="small-12 column">
