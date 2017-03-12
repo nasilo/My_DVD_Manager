@@ -29,7 +29,9 @@ class DvdsController < ApplicationController
 
   def new
     @user = current_user
+    @location = Location.new
     @dvd = Dvd.new
+    @dvd.location = @location
     @upc = Upc.new
     @submit_text = "Add DVD"
     @path = user_dvds_path(current_user)
@@ -118,7 +120,7 @@ class DvdsController < ApplicationController
   private
 
   def dvd_params
-    params.require(:dvd).permit(:upc_id, :title, :purchase_price, :purchase_location, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
+    params.require(:dvd).permit(:upc_id, :title, :purchase_price, :location_id, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
   end
 
   def upc_params

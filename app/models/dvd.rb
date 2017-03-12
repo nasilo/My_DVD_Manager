@@ -2,6 +2,7 @@ class Dvd <ApplicationRecord
   belongs_to :user
   belongs_to :upc
   belongs_to :location, required: false
+  accepts_nested_attributes_for :location
 
   validates :upc, presence: true
   validates :user, presence: true

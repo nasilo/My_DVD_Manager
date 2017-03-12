@@ -5,8 +5,8 @@
   </div>
 
   <div class="small-12 medium-6 column">
-    <%= f.label :purchase_location %>
-    <%= f.text_field :purchase_location %>
+    <%= f.label :location_id %>
+    <%= f.collection_select(:location_id, @user.locations, :id, :name) %>
   </div>
 
   <div class="small-12 column">

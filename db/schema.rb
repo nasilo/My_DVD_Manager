@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305165752) do
+ActiveRecord::Schema.define(version: 20170312192003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dvds", force: :cascade do |t|
-    t.string   "title",             null: false
+    t.string   "title",          null: false
     t.string   "purchase_price"
-    t.string   "purchase_location"
     t.integer  "user_rating"
     t.string   "mpaa_rating"
     t.text     "synopsis"
@@ -29,12 +28,12 @@ ActiveRecord::Schema.define(version: 20170305165752) do
     t.string   "director"
     t.string   "release_date"
     t.string   "run_time"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "user_id",           null: false
-    t.integer  "upc_id",            null: false
-    t.string   "image_small",       null: false
-    t.string   "image_large",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id",        null: false
+    t.integer  "upc_id",         null: false
+    t.string   "image_small",    null: false
+    t.string   "image_large",    null: false
     t.integer  "location_id"
   end
 

@@ -19,7 +19,11 @@
       <div class="text-left">
         <p><b>User Rating:</b> <%= @dvd.user_rating %> </p>
         <p><b>Purchase Price:</b> <%= @dvd.purchase_price %> </p>
-        <p><b>Purchase Location:</b> <%= @dvd.purchase_location %> </p>
+        <% if !@dvd.location.nil? %>
+          <p><b>Purchase Location:</b> <%= @dvd.location.name %> </p>
+        <% else %>
+          <p><b>Purchase Location:</b></p>
+        <% end %>
         <% if @user_can_change %>
           <%= link_to "Edit", edit_user_dvd_path(@user, @dvd), class: "button secondary" %>
           <%= link_to 'Delete', [@user, @dvd], method: :delete,
