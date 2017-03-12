@@ -118,7 +118,7 @@ class DvdsController < ApplicationController
   private
 
   def dvd_params
-    params.require(:dvd).permit(:upc_id, :title, :purchase_price, :purchase_location, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
+    params.require(:dvd).permit(:upc_id, :title, :purchase_price, :user_rating, :mpaa_rating, :synopsis, :studio, :cast, :writer, :producer, :director, :release_date, :run_time)
   end
 
   def upc_params
